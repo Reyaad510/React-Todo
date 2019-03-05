@@ -3,6 +3,7 @@
 
 import React from 'react';
 import ToDo from './Todo';
+import ToDoForm from './TodoForm';
 
 const ToDoList = props => {
     console.log(props);
@@ -12,6 +13,7 @@ const ToDoList = props => {
             {props.data.map(data => (
                 <ToDo list={data} key={data.id} />
             ))}
+            <ToDoForm />
         
         </div>
     );

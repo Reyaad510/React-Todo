@@ -5,7 +5,7 @@ import ToDoList from './components/TodoComponents/TodoList';
 
 
 
-const data = [
+const dataList = [
   {
   task: 'Organize Garage',
   id: 1528817077286,
@@ -18,6 +18,8 @@ const data = [
 }
 ];
 
+
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -25,17 +27,17 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      stateData: data,
+      stateData: dataList,
       task: '',
       id: '',
-      completed: ''
+      completed: 'false'
     }
   }
 
   render() {
     return (
       <div>
-        <ToDoList />
+        <ToDoList data={dataList}  />
       </div>
     );
   }

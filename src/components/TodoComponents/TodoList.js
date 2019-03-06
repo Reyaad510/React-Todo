@@ -11,7 +11,7 @@ const ToDoList = props => {
         <div>
             <h1>Todo List: MVP</h1>
             {props.data.map(data => (
-                <ToDo list={data} key={data.id} />
+                <ToDo list={data} key={data.id} toggle={props.toggle} />
             ))}
         
         </div>

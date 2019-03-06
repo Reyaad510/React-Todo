@@ -3,7 +3,7 @@ import React from 'react';
 const ToDo = props => {
 
     return (
-        <div>
+        <div onClick={props.toggle}>
             {props.list.task}
         </div>
     );

@@ -42,17 +42,16 @@ class App extends React.Component {
       completed: 'false'
     }
     this.setState({ todos: [...this.state.todos, newList], task: ''});
-   
-    
-  
-    
-  
+  }
+
+  toggleHandler = event => {
+    console.log('hi');
   }
 
   render() {
     return (
       <div>
-        <ToDoList data={this.state.todos}  />
+        <ToDoList data={this.state.todos} toggle={this.toggleHandler}  />
         <ToDoForm inputChange ={this.inputChangeHandler}  addToList={this.addToList} stateTask={this.state.task} />
       </div>
     );

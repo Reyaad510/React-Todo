@@ -41,7 +41,7 @@ class App extends React.Component {
       id: Date.now(),
       completed: 'false'
     }
-    this.setState({ todos: [...this.state.todos, newList]});
+    this.setState({ todos: [...this.state.todos, newList], task: ''});
    
     
   

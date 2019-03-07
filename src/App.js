@@ -38,21 +38,55 @@ class App extends React.Component {
     event.preventDefault();
     let newList = {
       task: this.state.task,
-      id: Date.now(),
-      completed: 'false'
+      id: Date.now()
     }
     this.setState({ todos: [...this.state.todos, newList], task: ''});
   }
 
-  toggleHandler = event => {
-    console.log('hi');
-  }
+
+
+
+    toggleHandler = itemId => {
+      this.setState(prevState => {
+        return {
+          todos: prevState.todos.map(todo => {
+            if(todo.id === itemId) {
+              return {
+                ...todo,
+                completed: !todo.completed
+              };
+            } else {
+              return todo;
+            }
+          })
+        }
+      })
+    }
+   
+ 
+
+    removeHandler = (e) => {
+      e.preventDefault();
+      this.setState(prevState => {
+        return {
+          todos: prevState.todos.filter(todo => {
+            return !todo.completed;
+          })
+        }
+      })
+    }
+  
 
   render() {
     return (
       <div>
-        <ToDoList data={this.state.todos} toggle={this.toggleHandler}  />
-        <ToDoForm inputChange ={this.inputChangeHandler}  addToList={this.addToList} stateTask={this.state.task} />
+        <ToDoList data={this.state.todos} 
+                  toggle={this.toggleHandler}  />
+        <ToDoForm inputChange ={this.inputChangeHandler}  
+                  addToList={this.addToList} 
+                  stateTask={this.state.task}
+                  removeHandler={this.removeHandler}
+/>
       </div>
     );
   }

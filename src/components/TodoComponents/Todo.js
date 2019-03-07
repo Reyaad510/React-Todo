@@ -3,8 +3,9 @@ import React from 'react';
 const ToDo = props => {
 
     return (
-        <div onClick={props.toggle}>
-            {props.list.task}
+        <div >
+          <li style={props.list.completed ? { textDecoration: 'line-through'} :null}
+        onClick={() => props.toggle(props.list.id)}>{props.list.task}</li>
         </div>
     );
 }
